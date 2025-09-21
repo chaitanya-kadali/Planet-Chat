@@ -18,6 +18,13 @@ io.on("connection",(socket)=>{
     socket.on("join", (payload)=>{
         io.emit("join", payload)
     })
+    socket.on("disconnect", (reason) => {
+    console.log("Socket disconnected", reason);
+    io.emit("chat", {
+                    user : "joins",
+                    message : `user ${reason} left the chat`
+                    })
+  });
 })
 
 const PORT = process.env.PORT || 3002;
