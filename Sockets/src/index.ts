@@ -10,10 +10,9 @@ const io = require("socket.io")(server,{
 })
 
 io.on("connection",(socket)=>{
-    console.log("sock ",socket);
     
     socket.on("chat", (payload)=>{ // on = LISTEN from the other/ALL users
-        console.log("payload : ", payload);
+        // console.lgo("payload : ", payload);
         io.emit("chat", payload)  // emit is to emit to ALL users     
     })
     socket.on("join", (payload)=>{
