@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
 
-const socket = io.connect("http://localhost:3002/");
+const socketUrl = import.meta.env.VITE_SOCKET_URL;
+const socket = io.connect(socketUrl);
 
 console.log("entry data of this file");
 

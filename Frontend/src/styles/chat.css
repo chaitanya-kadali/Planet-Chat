@@ -1,6 +1,7 @@
 .tot-cont {
     width: 80vw;
     margin: 0 auto;
+    max-width: 900px;
 }
 
 .msg-list {

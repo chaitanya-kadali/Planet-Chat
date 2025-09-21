@@ -5,7 +5,7 @@ import { emitChat, listenChat } from '../../utils/socket';
 function ChatBox(props){
 
     const [msgs, setMsgs] = useState([
-                                       {message:"mike testing", user:"chai"},
+                                       {message:"mike testing", user:"chaitanya default"},
                                      ]);
     const [msg, setMsg] = useState("");
 
