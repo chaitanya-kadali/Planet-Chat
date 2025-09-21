@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './Header';
 import Join from './Join';
+import ChatBox from './chat/ChatBox';
 
 const cont = {
   color: 'white',
@@ -9,16 +10,14 @@ const cont = {
   height: "100vh"
 };
 
-function Home()
-{ 
-    const [isJoin , SetIsJoin] = useState(false);
-    const toreg=()=>{
-          window.location.href='/join'
-    }
+function Home(){ 
+    const [user , setUser] = useState("");
     return(
         <div style={cont}>
             <Header/>
-            (isJoin ?  :<Join />)
+
+            {(user !=="" )? <ChatBox uName={user}/>
+                     :<Join setName={setUser}/>  }
         </div>
     )
 }
