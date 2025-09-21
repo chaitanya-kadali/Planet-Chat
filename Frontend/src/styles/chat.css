@@ -31,24 +31,24 @@
 
 .msg-box {
   width: 60%;
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(30, 30, 30);
   margin: 6px;
   border-radius: 10px;
   padding: 6px;
 }
 .uname{    
-    color: rgb(112, 0, 218);
+    color: rgb(255, 174, 0);
     margin-bottom: 5px;
 }
 .msg-piece {
     font-size: 20px;
-    color: rgb(0, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 
 .msg-box-myself{
     width: 60%;
-  background-color: rgb(0, 65, 12);
+  background-color: rgb(0, 52, 9);
   margin: 6px;
   border-radius: 10px;
   padding: 6px;
