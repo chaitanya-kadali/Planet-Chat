@@ -1,5 +1,6 @@
 import React,{useState} from 'react'; 
 import '../styles/Header.css';
+import { emitChat } from '../utils/socket';
 
 function Join (props){
   
@@ -9,8 +10,13 @@ function Join (props){
     const { name, value } = e.target;
     setUser(value);
   }; 
-  const submitHandler= async(e)=>{
+  const submitHandler= (e)=>{
     e.preventDefault(); 
+    if(user==="joins"){
+      alert("this name is not allowed, try another")
+      return;
+    }
+    emitChat("joins", user)
     props.setName(user);
     // store in local browser
   }

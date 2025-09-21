@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../styles/chat.css';
+import { emitChat, listenChat } from '../../utils/socket';
 
 function ChatBox(props){
 
     const [msgs, setMsgs] = useState([
-                                       {mesg:"mike testing", user:"chai"},
-                                       {mesg:"hi hi hey why you are always in mood.. get the thing like a brand new. i dont wanna tell you if i do", user:"chaitanya"}]);
-    const [msg, setMsg] = useState();
+                                       {message:"mike testing", user:"chai"},
+                                     ]);
+    const [msg, setMsg] = useState("");
 
-    const submitHandler = ()=>{
-
+    useEffect( ()=>{
+        listenChat(setMsgs,msgs)
+    })
+    const submitHandler = (e)=>{
+        e.preventDefault();
+       emitChat(props.uName, msg);
+        setMsg("");
     }
-    const changeHandler = ()=>{
+    const changeHandler = (e)=>{
+        const { name, value } = e.target;
+    setMsg(value);
     }
     return(
         <>
@@ -21,13 +29,29 @@ function ChatBox(props){
             <div className="msg-list">
               
               {
-                msgs.map((each, ind)=>(
-                    <div key={ind} className="msg-box">
-                        <p className='uname'> {each.user} </p>        
-                        <p  className='msg-piece'> {each.mesg} </p>
-                    </div>
-                    
-                ))
+                msgs.map((each, ind)=>{
+                   if(each.user === props.uName ){
+                    return(
+                            <div key={ind} className="msg-box-myself">
+                                <p className='uname'> {each.user} </p>        
+                                <p  className='msg-piece'> {each.message} </p>
+                            </div>
+                       )
+                    }else if(each.user === "joins"){
+                        return(
+                            <div key={ind} className="msg-box-joins">      
+                                <p  className='msg-piece' style={{color:"white"}}> user {each.message} entered the chat !</p>
+                            </div>
+                        )
+                    }else{
+                       return (
+                            <div key={ind} className="msg-box">
+                                <p className='uname'> {each.user} </p>        
+                                <p  className='msg-piece'> {each.message} </p>
+                            </div>
+                        )
+                    }
+                })
                 }
             </div>
              

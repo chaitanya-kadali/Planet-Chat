@@ -5,6 +5,7 @@
 
 .msg-list {
     height: 75vh;
+    overflow-y: scroll;
 }
 #cinp{
   font-size: 16px;
@@ -41,4 +42,21 @@
 .msg-piece {
     font-size: 20px;
     color: rgb(0, 255, 255);
+}
+
+
+.msg-box-myself{
+    width: 60%;
+  background-color: rgb(0, 65, 12);
+  margin: 6px;
+  border-radius: 10px;
+  padding: 6px;
+  margin-left: auto;
+}
+
+.msg-box-joins {
+    width: 90%;
+  background-color: rgba(15, 136, 37, 0);
+  margin: 6px;
+  margin: 0 auto;
 }

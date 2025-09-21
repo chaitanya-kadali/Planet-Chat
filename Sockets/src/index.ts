@@ -16,6 +16,9 @@ io.on("connection",(socket)=>{
         console.log("payload : ", payload);
         io.emit("chat", payload)  // emit is to emit to ALL users     
     })
+    socket.on("join", (payload)=>{
+        io.emit("join", payload)
+    })
 })
 
 server.listen(3002, ()=>{
