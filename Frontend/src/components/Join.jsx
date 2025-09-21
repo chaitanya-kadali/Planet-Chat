@@ -1,9 +1,9 @@
 import React,{useState} from 'react'; 
-import '../styles/Dologin.css'
+
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-function Dologin (){
+function Join (){
   
   const [user,setUser]=useState({email:'',password:''});
 
@@ -76,4 +76,4 @@ const gotoab=()=>{
   )
 }
 
-export default Dologin;
+export default Join;
