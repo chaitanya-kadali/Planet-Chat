@@ -32,7 +32,7 @@ return (
       id='inp'
       />
 
-      <button id='inp' >Enter Chat</button>
+      <button id='inp' >Join the Chat</button>
   </form>
   )
 }

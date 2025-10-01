@@ -22,7 +22,7 @@ io.on("connection",(socket)=>{
     console.log("Socket disconnected", reason);
     io.emit("chat", {
                     user : "joins",
-                    message : `user ${reason} left the chat`
+                    message : `some user left the chat` // reason => transport close
                     })
   });
 })
